@@ -13,11 +13,34 @@ class TreeNode(var `val`: Int) {
     var right: TreeNode? = null
 }
 
+
 class Solution {
-    fun addOneRow(root: TreeNode?, `val`: Int, depth: Int): TreeNode? {
-        
+	fun addOneRowImpl(node: TreeNode?, d: Int, v: Int, depth: Int) {
+		node ?: return
+		if (d == depth - 1) {
+			val left = TreeNode(v)
+			val right = TreeNode(v)
+			
+			left.left = node.left
+			right.right = node.right
+
+			node.left = left
+			node.right = right
+			return
+		}
+		addOneRowImpl(node.left, d + 1, v, depth)
+		addOneRowImpl(node.right, d + 1, v, depth)
+	}
+
+    fun addOneRow(root: TreeNode?, v: Int, depth: Int): TreeNode? {
+		if (depth == 1) {
+			return TreeNode(v).apply { left = root }
+		}
+		addOneRowImpl(root, 1, v, depth)
+		return root
     }
 }
+
 
 fun main() {
 	println("Hello World!")
