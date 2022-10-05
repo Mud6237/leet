@@ -1,0 +1,13 @@
+{
+  "editor.fontSize": 15,
+  "editor.tabSize": 2,
+  "editor.minimap.enabled": false,
+  "editor.formatOnSave": true,
+  "terminal.explorerKind": "external",
+  "terminal.integrated.fontSize": 15,
+  "terminal.integrated.fontFamily": "Menlo",
+  "terminal.integrated.cursorStyle": "line",
+  "terminal.integrated.fontWeight": "normal",
+  "workbench.colorTheme": "Default Dark+",
+  "files.autoSave": "afterDelay"
+}
