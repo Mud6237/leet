@@ -13,7 +13,20 @@ class TreeNode(var `val`: Int) {
 }
 
 class Solution {
+    private var maxSum = Int.MIN_VALUE
+
+    private fun maxPathSumImpl(node: TreeNode?): Int {
+        node ?: return 0
+        val left = maxPathSumImpl(node.left)
+        val right = maxPathSumImpl(node.right)
+        maxSum = Math.max(maxSum, node.`val` + left + right)
+        val s =  Math.max(Math.max(node.`val`, node.`val` + left), node.`val` + right)
+        maxSum = Math.max(maxSum, s)
+        return s
+    }
+
     fun maxPathSum(root: TreeNode?): Int {
-        
+        maxPathSumImpl(root)
+        return maxSum
     }
 }

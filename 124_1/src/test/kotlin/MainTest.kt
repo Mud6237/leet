@@ -1,5 +1,6 @@
 import org.junit.Test
 import org.junit.Assert
+import org.junit.Ignore
 
 class MainTest {
 	@Test
@@ -22,6 +23,22 @@ class MainTest {
 			}
 		}		
 		val expected = 42
+		Assert.assertEquals(expected, Solution().maxPathSum(root))
+	}
+
+	@Test
+	fun `TestCase 66`() {
+		val root = TreeNode(-3)
+		val expected = -3
+		Assert.assertEquals(expected, Solution().maxPathSum(root))
+	}
+
+	@Test
+	fun `TestCase 70`() {
+		val root = TreeNode(2).apply {
+			left = TreeNode(-1)
+		}
+		val expected = 2
 		Assert.assertEquals(expected, Solution().maxPathSum(root))
 	}
 }
